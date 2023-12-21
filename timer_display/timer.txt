@@ -1,0 +1,2 @@
+main timer true
+main timer false
