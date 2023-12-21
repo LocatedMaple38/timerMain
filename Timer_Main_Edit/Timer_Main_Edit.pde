@@ -10,6 +10,8 @@ boolean penoltyGust2TF = false;
 boolean buzzerTF = false;
 boolean resetTF = false;
 
+boolean timerCom = false;
+
 int appWidth, appHeight;
 int timer;
 int penoltyHome1Timer, penoltyHome2Timer;
@@ -26,7 +28,7 @@ PrintWriter output;
 void setup(){
   size(700, 700);
   frameRate(60);
-  output = createWriter("timer_Display/sketch_231220a/timer.txt");
+  output = createWriter("../timer_Display/timer.txt");
   
   allFont = createFont("ArialMT", 55);
   
@@ -50,7 +52,6 @@ void setup(){
   
 }
 void draw(){
-  output.println(timerTF);
   output.flush();
   
   rect1();
@@ -80,13 +81,25 @@ void draw(){
 void keyPressed(){
   if(key == 's' || key == 'S'){
     timerTF = false;
+    timerCom = true;
   }
   if(key == 'p' || key == 'P'){
     timerTF = true;
+    timerCom = true;
   }
+  if(key == SHIFT && key == 'M' && key == '!'){
+    
+  }
+  
   //output.println();
-  output.println(timerTF);
-  output.flush();
+  if(timerCom == true && timerTF == true){
+    output.println("main timer "+timerTF);
+    timerCom = false;
+  }
+  if(timerCom == true && timerTF == false){
+    output.println("main timer "+timerTF);
+    timerCom = false;
+  }
 }
 void mousePressed(){
   if(mouseX<xStart && mouseX>xStart+widthStart && mouseY<yStart && mouseY>yStart+heightStart){
@@ -97,6 +110,5 @@ void mousePressed(){
   }
 }
 /*
-float , , , ;
-float , , , 
+
 */

@@ -16,11 +16,11 @@ float xPenoltyHomeText, yPenoltyHomeText, widthPenoltyHomeText, heightPenoltyHom
 
 int appWidth, appHeight;
 
-String path = "../timer.text";
+String path = "../timer.txt";
 
 void setup(){
   size(500, 500);
-  surface.setTitle("Timer Display");
+  surface.setTitle("Timer Display Main");
   surface.setResizable(true);
   windowRatio(500, 500);
   parseFile();
@@ -46,7 +46,7 @@ void parseFile() {
 }
 void draw(){
  
-  BufferedReader reader = createReader("timer.txt");
+  BufferedReader reader = createReader(path);
   println(reader);
   rect2();
 }
