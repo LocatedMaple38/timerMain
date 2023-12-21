@@ -104,8 +104,11 @@ void mousePressed(){
   if(mouseX<xStart && mouseX>xStart+widthStart && mouseY<yStart && mouseY>yStart+heightStart){
     timerTF = true;
   }
+  if(mouseX<xReset && mouseX>xReset+widthReset && mouseY<yReset && mouseY<yReset+heightReset){
+    
+  }
 }
 /*
 float , , , ;
-float xReset, yReset, widthReset, heightReset
+float , , , 
 */
