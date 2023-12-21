@@ -13,25 +13,34 @@ float xPenoltyGust1, yPenoltyGust1, widthPenoltyGust1, heightPenoltyGust1;
 float xPenoltyGust2, yPenoltyGust2, widthPenoltyGust2, heightPenoltyGust2;
 float xPenoltyGustText, yPenoltyGustText, widthPenoltyGustText, heightPenoltyGustText;
 float xPenoltyHomeText, yPenoltyHomeText, widthPenoltyHomeText, heightPenoltyHomeText;
+float xStart, yStart, widthStart, heightStart;
+float xReset, yReset, widthReset, heightReset;
 
 boolean timerTF = false;
 boolean penoltyHome1TF = false;
 boolean penoltyHome2TF = false;
 boolean penoltyGust1TF = false;
 boolean penoltyGust2TF = false;
+boolean buzzerTF = false;
+boolean resetTF = false;
 
 int appWidth, appHeight;
 int timer;
 int penoltyHome1Timer, penoltyHome2Timer;
 int penoltyGust1Timer, penoltyGust2Timer;
 
-int A = 0, B = 60, C = 1;
+int A = 0, B = 0, C = 5;
 
 PFont allFont;
 
+String c = " min ", b = " sec ", hello = ":";
+
 void setup(){
-  //fullScreen();
+  //size(700, 700);
+  fullScreen();
   frameRate(60);
+  
+  allFont = createFont("ArialMT", 55);
   
   appWidth = width;
   appHeight = height;
@@ -41,12 +50,27 @@ void setup(){
   widthTimer = appWidth*1/2;
   heightTimer = appHeight*1/10;
   
+  xPired = appWidth*1/2;
+  yPired = appHeight*5/11;
+  widthPired = appWidth*1/11;
+  heightPired = appHeight*1/11;
+  
+  xStart = appWidth*0;
+  yStart = appHeight*9/10;
+  widthStart = appWidth*1/10;
+  heightStart = appHeight*1/10;
+  
+  xReset = appWidth*1/10;
+  yReset = appHeight*9/10;
+  widthReset = appWidth*1/10;
+  heightReset = appHeight*1/10;
+  
 }
 void draw(){
   
   rect1();
-  //text1();
-  println("min "+C +" sec " + B + " fraim " + A);
+  text1();
+  println("min "+ C +" sec " + B + " fraim " + A);
   
   if(timerTF == true){
     A = A+1;
@@ -57,20 +81,31 @@ void draw(){
     A = 0;
   }
   
-  if(B == 0){
-    B = 60;
+  if(B == 0 && C >= 1){
+    B = 59;
     C --;
   }
   
-  if(C == 0 && B == 0){
+  if(B == 0 && C == 0){
     timerTF = false;
+    buzzerTF = true;
+    resetTF = true;
   }
 }
 void keyPressed(){
   if(key == 's' || key == 'S'){
     timerTF = false;
   }
-  if(key == 'p' || key == 'S'){
+  if(key == 'p' || key == 'P'){
     timerTF = true;
   }
 }
+void mousePressed(){
+  if(mouseX<xStart && mouseX>xStart+widthStart && mouseY<yStart && mouseY>yStart+heightStart){
+    timerTF = true;
+  }
+}
+/*
+float , , , ;
+float xReset, yReset, widthReset, heightReset
+*/
