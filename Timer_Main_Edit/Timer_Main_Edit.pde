@@ -12,6 +12,7 @@ boolean resetTF = false;
 
 boolean timerCom = false;
 
+
 int appWidth, appHeight;
 int timer;
 int penoltyHome1Timer, penoltyHome2Timer;
