@@ -15,6 +15,9 @@ float xPenoltyGustText, yPenoltyGustText, widthPenoltyGustText, heightPenoltyGus
 float xPenoltyHomeText, yPenoltyHomeText, widthPenoltyHomeText, heightPenoltyHomeText;
 
 int appWidth, appHeight;
+
+String path = "../timer.text";
+
 void setup(){
   size(500, 500);
   surface.setTitle("Timer Display");
@@ -39,21 +42,11 @@ void setup(){
 }
 void parseFile() {
   // Open the file from the createWriter() example
-  BufferedReader reader = createReader("timer.txt");
-  String line = null;
-  try {
-    while ((line = reader.readLine()) != null) {
-      String[] pieces = split(line, TAB);
-      int x = int(pieces[0]);
-      int y = int(pieces[1]);
-      point(x, y);
-    }
-    reader.close();
-  } catch (IOException e) {
-    e.printStackTrace();
-  }
-} 
+  
+}
 void draw(){
+ 
+  BufferedReader reader = createReader("timer.txt");
+  println(reader);
   rect2();
-  output.flush();
 }
