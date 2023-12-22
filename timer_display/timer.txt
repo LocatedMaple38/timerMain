@@ -1,0 +1,2 @@
+Main Timer false
+Stop Clock false
