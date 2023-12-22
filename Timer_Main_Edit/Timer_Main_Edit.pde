@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 float xTimer, yTimer, widthTimer, heightTimer;
 float xStart, yStart, widthStart, heightStart;
 float xReset, yReset, widthReset, heightReset;
@@ -11,26 +18,44 @@ boolean buzzerTF = false;
 boolean resetTF = false;
 
 boolean timerCom = false;
+boolean stopClockCom = false;
 
 int appWidth, appHeight;
 int timer;
 int penoltyHome1Timer, penoltyHome2Timer;
 int penoltyGust1Timer, penoltyGust2Timer;
+int numbEff = 0;
 
 int A = 0, B = 0, C = 5;
+int numbEFX = 0;
 
 PFont allFont;
 
 String c = " min ", b = " sec ", hello = ":";
+String path = "../timer_display/EFX/";
 
 PrintWriter output;
+
+Minim minim; //creates object to access all functions
+AudioPlayer[] song = new AudioPlayer[ numbEFX ]; //creates "Play List" variable holding extensions WAV, AIFF, AU, SND, and MP3
+AudioMetaData[] songMetaData = new AudioMetaData[ numbEFX ]; //
 
 void setup(){
   size(700, 700);
   frameRate(60);
+  surface.setTitle("Timer Main Edit");
+  
+  minim = new Minim(this); 
+  
+  //song[0] = minim.loadFile(path);
+  //songMetaData[0] = song[0].getMetaData();
+  
   output = createWriter("../timer_Display/timer.txt");
   
   allFont = createFont("ArialMT", 55);
+  
+  output.println("Main Timer "+timerTF);
+  output.println("Stop Clock "+stopClockCom);
   
   appWidth = width;
   appHeight = height;
@@ -79,6 +104,11 @@ void draw(){
   }
 }
 void keyPressed(){
+  
+  if(key == 'B' || key == 'B'){
+    //play soundEFT mixkit-basketball-buzzer-1647.wav
+  }
+  
   if(key == 's' || key == 'S'){
     timerTF = false;
     timerCom = true;
@@ -86,9 +116,6 @@ void keyPressed(){
   if(key == 'p' || key == 'P'){
     timerTF = true;
     timerCom = true;
-  }
-  if(key == SHIFT && key == 'M' && key == '!'){
-    
   }
   
   //output.println();
@@ -101,14 +128,3 @@ void keyPressed(){
     timerCom = false;
   }
 }
-void mousePressed(){
-  if(mouseX<xStart && mouseX>xStart+widthStart && mouseY<yStart && mouseY>yStart+heightStart){
-    timerTF = true;
-  }
-  if(mouseX<xReset && mouseX>xReset+widthReset && mouseY<yReset && mouseY<yReset+heightReset){
-    
-  }
-}
-/*
-
-*/
