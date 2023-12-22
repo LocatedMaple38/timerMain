@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 Main Timer false
 Stop Clock false
+=======
+>>>>>>> 8d7917bd8cfd05a9288640eadc782ee019ddf462
