@@ -4,13 +4,17 @@ int A = 0, B = 0, C = 5;
 boolean timerTF = false;
 
 String path = "../timer.text";
+String line;
+
+BufferedReader reader;
 
 void setup(){
   size(200, 200);
   surface.setTitle("Timer Display Stop Clock");
   surface.setResizable(true);
   windowRatio(200, 200);
-  
+  reader = createReader();    
+
 }
 void draw(){
   if(timerTF == true){
