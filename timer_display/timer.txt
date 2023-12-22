@@ -1,2 +1,9 @@
 main timer true
+main timer true
+main timer true
+main timer true
+main timer true
+main timer true
+main timer true
+main timer true
 main timer false
