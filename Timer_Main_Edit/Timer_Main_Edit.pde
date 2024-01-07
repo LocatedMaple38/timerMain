@@ -21,6 +21,7 @@ int penoltyHome1Timer, penoltyHome2Timer;
 int penoltyGust1Timer, penoltyGust2Timer;
 
 int A = 0, B = 0, C = 5;
+int BCA = 0;
 
 PFont allFont;
 
@@ -32,9 +33,6 @@ void setup(){
   size(700, 700);
   frameRate(60);
   surface.setTitle("Timer Main Edit");
-  
-  
-  
   
   output = createWriter("../timer_Display/timer.txt");
   
