@@ -19,10 +19,13 @@ Boolean stopBoolean=false, pauseBoolean=false, changeState=false, playBuzzer = f
 
 String path = "../timer.txt";
 
+String False = "false", True = "true";
+
+int timerINT = 0;
+
+
 //
-void setup(){
-  surface.setTitle("Timer Adio");
-  
+void setup(){  
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   //Music File Load
   String relativeMusicPathway = "../EFX/"; //Relative Path
@@ -71,7 +74,21 @@ void setup(){
   playList[currentSong].play();
 } //End setup
 //
-void draw() {
+void draw(){
+  String[] lines = loadStrings(path);
+  
+  for (int i = 0 ; i < lines.length; i++) {
+    timerINT = i;
+  }
+  
+  println(lines[timerINT-1]);
+  
+  if(lines[timerINT-1] == True){
+    playBuzzer = true;
+  }
+  
+  playList[currentSong].rewind();
+  
   //Note: Looping Function
   //Note: logical operators could be nested IFs
   //if ( playList[currentSong].isLooping() && playList[currentSong].loopCount()!=-1 ) println("There are", playList[currentSong].loopCount(), "loops left.");
@@ -82,19 +99,11 @@ void draw() {
   //println( "Song Position", song1.position(), "Song Length", song1.length() );
   //
   // songMetaData1.title()
-  rect(width*1/4, height*0, width*1/2, height*3/10); //mistake
-  fill(purple); //Ink
-  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
-  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
-  int size = 10; //Change this font size
-  textFont(generalFont, size); //Change the number until it fits, largest font size
-  text(playListMetaData[currentSong].title(), width*1/4, height*0, width*1/2, height*3/10);
-  fill(255); //Reset to white for rest of the program
   //
   //Autoplay, next song automatically plays
   if(playBuzzer == true){
-    if ( playList[currentSong].isPlaying() ) {
-      //println("hereD1", playList[currentSong].isPlaying(), stopBoolean, pauseBoolean, changeState);
+    if ( playList[0].isPlaying() ) {
+      //println("hereD1", playList[0].isPlaying(), stopBoolean, pauseBoolean, changeState);
       if ( stopBoolean==true || pauseBoolean==true ) {
         //changeState=true;
         playList[currentSong].pause();
@@ -129,9 +138,10 @@ void draw() {
 } //End draw
 //
 void keyPressed() {
-  if ( soundEffects[2].position()!=0 ) soundEffects[2].rewind();
-  soundEffects[2].play();
-  println ( "herek1", playList[currentSong].isPlaying(), pauseBoolean );
+  if(key == 'b' || key == 'B'){
+    playBuzzer = true;
+  }
+  //println ( "herek1", playList[currentSong].isPlaying(), pauseBoolean );
   //
   if ( key=='P' || key=='p' ) {
     changeState=true;
