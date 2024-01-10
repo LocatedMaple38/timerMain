@@ -1,5 +1,5 @@
 void rect2(){
-  rect(xTimer, yTimer, widthTimer, heightTimer));
+  rect(xTimer, yTimer, widthTimer, heightTimer);
   rect(xText1, yText1, widthText1, heightText1);
   rect(xPired, yPired, widthPired, heightPired);
   rect(xPiredText, yPiredText, widthPiredText, heightPiredText);
