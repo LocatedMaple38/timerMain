@@ -17,15 +17,13 @@ float xPenoltyHomeText, yPenoltyHomeText, widthPenoltyHomeText, heightPenoltyHom
 int appWidth, appHeight;
 
 String path = "../timer.txt";
-String line;
-
 
 void setup(){
   size(500, 500);
   surface.setTitle("Timer Display Main");
   surface.setResizable(true);
   windowRatio(500, 500);
-  
+    
   appWidth = width;
   appHeight = height;
   
@@ -41,5 +39,11 @@ void setup(){
     
 }
 void draw(){
+  String[] lines = loadStrings(path);
+  
+  for (int i = 0 ; i < lines.length; i++) {
+    println(lines[0]);
+  }
+  
   rect2();
 }
