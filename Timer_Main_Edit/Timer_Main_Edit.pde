@@ -107,11 +107,7 @@ void keyPressed() {
 
   if (key == 'B' || key == 'B') {
     buzzerTF = true;
-  }
-  
-  if(buzzerTF == true){
-    buzzerTF = false;
-  }
+  }    
 
   if (key == 's' || key == 'S') {
     timerTF = false;
@@ -131,5 +127,6 @@ void keyPressed() {
     output.println(buzzerTF);
     output.println(resetTF);
     timerCom = false;
+    buzzerTF = false;
   }
 }
