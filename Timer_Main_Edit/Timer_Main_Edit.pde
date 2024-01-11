@@ -111,11 +111,6 @@ void setup() {
   widthPenoltyHome2Edit = appWidth*1/8;
   heightPenoltyHome2Edit = appHeight*1/20;
   
-  xPenoltyHome2Edit = appWidth*1/8;
-  yPenotyHome2Edit = appHeight*10/20;
-  widthPenoltyHome2Edit = appWidth*1/8;
-  heightPenoltyHome2Edit = appHeight*1/20;
-  
   xPenoltyGustText = appWidth*5.5/8;
   yPenoltyGustText = appHeight*6/20;
   widthPenoltyGustText = appWidth*2/8;
