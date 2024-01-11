@@ -56,9 +56,11 @@ void draw(){
     timerINT = i;
   }
   
-  //println(lines[timerINT-1]);
+  println(lines[timerINT-1]);
+  println(playBuzzer);
+  println(String.valueOf(true));
   
-  if(lines[timerINT-1] == True){
+  if(lines[timerINT-1] == String.valueOf(true)){
     playBuzzer = true;
   }
   
