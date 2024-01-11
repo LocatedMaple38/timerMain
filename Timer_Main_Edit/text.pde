@@ -15,8 +15,8 @@ void text1(){
   textFont(allFont, 25);
   text(timerMinText, xTimerMainMinEditText, yTimerMainMinEditText, widthTimerMainMinEditText, heightTimerMainMinEditText);
   text(timerSecText, xTimerMainSecEditText, yTimerMainSecEditText, widthTimerMainSecEditText, heightTimerMainSecEditText);
-  text(PenoltyGustText, xPenoltyHomeText, yPenoltyHomeText, widthPenoltyHomeText, heightPenoltyHomeText);
-  text(PenoltyhomeText, xPenoltyGustText, yPenoltyGustText, widthPenoltyGustText, heightPenoltyGustText);
+  text(PenoltyhomeText, xPenoltyHomeText, yPenoltyHomeText, widthPenoltyHomeText, heightPenoltyHomeText);
+  text(PenoltyGustText, xPenoltyGustText, yPenoltyGustText, widthPenoltyGustText, heightPenoltyGustText);
   textFont(allFont, 15);
   text(Penolty1Text, xPenoltyHome1EditText, yPenoltyHome1EditText, widthPenoltyHome1EditText, heightPenoltyHome1EditText);
   text(Penolty2Text, xPenoltyHome2EditText, yPenoltyHome2EditText, widthPenoltyHome2EditText, heightPenoltyHome2EditText);
