@@ -5,12 +5,9 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-
 Boolean playBuzzer = false;
 
 String path = "../timer.txt";
-
-String False = "false", True = "true";
 
 int timerINT = 0;
 
@@ -26,6 +23,8 @@ PFont generalFont;
 
 //
 void setup(){  
+  
+  frameRate(30);
   
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   //Music File Load
@@ -56,27 +55,26 @@ void draw(){
     timerINT = i;
   }
   
-  println(lines[timerINT-1]);
-  println(playBuzzer);
-  println(String.valueOf(true));
   
-  if(lines[timerINT-1] == String.valueOf(true)){
+  println("file "+lines[timerINT-1]);
+  println("playBuzzer "+playBuzzer);
+  println("String of Boolean "+String.valueOf(true));
+  
+  println(" ");
+  
+  if(lines[timerINT-1].toString() == String.valueOf(true)){
     playBuzzer = true;
   }
   
-  
+  if(playBuzzer == true){
+    soundEffects[0].play();
+    playBuzzer = false;
+    soundEffects[0].rewind();
+  }
 } //End draw
 //
 void keyPressed() {
   if(key == 'b' || key == 'B'){
     playBuzzer = true;
   }
-  
-  if ( soundEffects[0].position()!=0 ) soundEffects[0].rewind();
-  
-  if(playBuzzer == true){
-    soundEffects[0].play();
-    playBuzzer = false;
-  }
-  
 }
